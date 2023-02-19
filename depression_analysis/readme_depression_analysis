@@ -1,0 +1,10 @@
+Basically in this particular folder we have the source codea and sample outputof the python files that uses opencv and deepface modules to detect the face 
+and emotion of the face to calculate the depression percentage of the user. 
+The idea is to include this particular feature to our AI chatbot for a much more accurate response each and every time and to detetct the depression and anxiety level 
+of the user and give them suggestion based on the result 
+To run the following package download the two python files and one xml file to your python directory and then run the emotions.py file which also calls the webcam.py file
+The working is as follows:
+  based on the time delay the webcame captures the images and and store it and these images are used for the detetction of various images throught the course of the 
+  video and based on some calculation the model provides you with the depression percentage . The model can give much more accurate values by training it in the real 
+  time application and the depression monitor can be improvised by the same as follows:
+
