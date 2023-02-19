@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<title>Be the Healthy You!</title>
+<head>
+<link
+rel="shortcut icon"
+type="image/x-icon"
+href="https://i.pinimg.com/originals/c7/4f/7c/c74f7c85a03030b2afc4d6051ef6e155.png"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<style>
+      body {
+        font-family: monospace;
+        background-image: url('https://www.news-medical.net/images/Article_Images/ImageForArticle_22457_16516788730473249.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+      }
+      h1 {
+        background-color: #FFC9BE;
+        display: inline-block;
+        font-size: 3em;
+        margin: 0;
+        padding: 14px;
+      }
+      h3 {
+        color: black;
+        font-size: 20px;
+        margin-top: 3px;
+        text-align: center;
+      }
+      #chatbox {
+        margin-left: auto;
+        margin-right: auto;
+        width: 40%;
+        margin-top: 60px;
+      }
+      #userInput {
+        margin-left: auto;
+        margin-right: auto;
+        width: 40%;
+        margin-top: 60px;
+      }
+      #textInput {
+        width: 90%;
+        border: none;
+        border-bottom: 3px solid black;
+        font-family: monospace;
+        font-size: 17px;
+      }
+      .userText {
+        color: black;
+        font-family: monospace;
+        font-size: 17px;
+        text-align: right;
+        line-height: 30px;
+      }
+      .userText span {
+        background-color: #FDFF60;
+        padding: 10px;
+        border-radius: 2px;
+      }
+      .botText {
+        color: black;
+        font-family: monospace;
+        font-size: 17px;
+        text-align: left;
+        line-height: 30px;
+      }
+      .botText span {
+        background-color: #BEE3FF;
+        padding: 10px;
+        border-radius: 2px;
+      }
+      #tidbit {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 300px;
+      }
+      .boxed {
+        margin-left: auto;
+        margin-right: auto;
+        width: 78%;
+        margin-top: 60px;
+        border: 1px solid green;
+      }
+      .box {
+        border: 2px solid black;
+      }
+    </style>
+
+</head>
+
+<body>
+<img />
+<center>
+<h1>
+SARA Healthcare Services
+</h1>
+</center>
+<div class="box"></div>
+<div class="boxed">
+<div>
+<div id="chatbox">
+<p class="botText">
+<span>I'm SARA, your all-time Medical Assistant</span>
+</p>
+</div>
+<div id="userInput">
+<input id="textInput" type="text" name="msg" placeholder="Message" />
+</div>
+</div>
+<script>
+        function getBotResponse() {
+          var rawText = $("#textInput").val();
+          var userHtml = '<p class="userText"><span>' + rawText + "</span></p>";
+          $("#textInput").val("");
+          $("#chatbox").append(userHtml);
+          document
+            .getElementById("userInput")
+            .scrollIntoView({ block: "start", behavior: "smooth" });
+          $.get("/get", { msg: rawText }).done(function(data) {
+            var botHtml = '<p class="botText"><span>' + data + "</span></p>";
+            $("#chatbox").append(botHtml);
+            document
+              .getElementById("userInput")
+              .scrollIntoView({ block: "start", behavior: "smooth" });
+          });
+        }
+        $("#textInput").keypress(function(e) {
+          if (e.which == 13) {
+            getBotResponse();
+          }
+        });
+      </script>
+</div><br><br><br>
+<h2>&nbsp;&nbsp;And, Why Us?</h2>
+<h3>We are a team of experienced tech-based healthcare professionals dedicated to providing the best possible care to our patients. Our mission is to help you achieve optimal health and wellness through a comprehensive approach that includes preventative care, patient education, and state-of-the-art treatments.</h3>
+<br><br><br>
+<h2>&nbsp;&nbsp;Why Fear, when SARA is here!</h2>
+                        <h4>&nbsp;&nbsp;&nbsp;&nbsp;Our healthcare services include:</h4>
+                        <ul>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<li><h4>Medication Reminders</h4><p>Your personal nurse could still forget, but SARA doesn't! Get timely alerts about your regular medications along with their recommended dosage according to your current medical condition. </p></li>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<li><h4>Symptom Analysis</h4><p>Better Late than Never! Always be assured of your symptoms</p></li>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<li><h4>Health Journal</h4><p>One among our USPs! Your personalized medical journal, all in a single-click!</p></li>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<li><h4>Nutrition Tracker</h4><p>Keep a track of all your intakes for better diet goals!</p></li>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<li><h4>Telehealth Services</h4><p>Our very own Bot, SARA!</p></li>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<li><h4>Virtual Consultations</h4><p>Now connect live, with top-notch medical professionals from all around the globe!</p></li>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<li><h4>Workout Tracker</h4><p>Our upcoming project, where you'd be able to track accurate workout postures, right from the comfort of your very own homes</p></li>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<li><h4>Personalized Blog Feed</h4><p>Stay Tuned!</p></li>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><h4>And much beyond any other Telemedicine Platform...</h4></br>
+                        </ul>
+<center>
+<h2>Connect with Team SARA</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <form action="submit.php" method="post">
+                        <div class="form-group">
+                            <label for="name">People call you by: &nbsp;</label>
+                            <input type="text" class="form-control" id="name" name="name" required> <br><br>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Views: &nbsp;</label>
+                            <textarea class="form-control" id="message" name="message" rows="5" required></textarea> <br><br>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Means by which we could connect back: &nbsp;</label>
+                            <input type="email" class="form-control" id="email" name="email" required> <br><br>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button><br><br>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <h2>One can Find Us At</h2>
+                    <p>Vellore Institute of Technology<br>Chennai - 600127</p> <br><br>
+                    <h2>Or, We're just a DM away:</h2>
+                    <p>Phone: (+91) 4444 55 8888<br>Email: contact@teamsara.in</p><br><br><br><br>
+                </center>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+        <div class="row">
+        <div class="col-md-12">
+        <center><p><strong>©</strong> 2023 Team <strong>SARA</strong></p></center>
+        </div>
+        </div>
+        </div>
+    </footer>
+</body>
+</html>
